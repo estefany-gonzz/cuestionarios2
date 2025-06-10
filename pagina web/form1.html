@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Formulario de Contacto</h2>
+    <form id="form1">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required />
+
+      <label>Email:</label>
+      <input type="email" name="email" required />
+
+      <label>Edad:</label>
+      <input type="number" name="edad" min="1" required />
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('form1').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = {
+        nombre: this.nombre.value,
+        email: this.email.value,
+        edad: this.edad.value
+      };
+      localStorage.setItem('formData', JSON.stringify(data));
+      window.location.href = 'confirmation.html';
+    });
+  </script>
+</body>
+</html>

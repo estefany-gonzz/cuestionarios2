@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Confirmación</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Resumen del formulario</h2>
+    <div id="resumen"></div>
+    <a href="home.html">Volver al inicio</a>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('formData'));
+    const resumen = document.getElementById('resumen');
+    if (data) {
+      resumen.innerHTML = Object.entries(data).map(([key, value]) =>
+        `<p><strong>${key}:</strong> ${value}</p>`
+      ).join('');
+    } else {
+      resumen.textContent = "No se encontraron datos.";
+    }
+  </script>
+</body>
+</html>
